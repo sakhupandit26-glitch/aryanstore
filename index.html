@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <!-- Meta Pixel Code -->
+
+<!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -14,13 +15,17 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fbq('init', '2798426877219761');
 fbq('track', 'PageView');
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2798426877219761&ev=PageView&noscript=1"
-/></noscript>
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2798426877219761&ev=PageView&noscript=1"/>
+</noscript>
 <!-- End Meta Pixel Code -->
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sureshot By aryan - Join Telegram</title>
+<title>Sureshot By Aryan - Join Telegram</title>
+<link rel="icon" type="image/jpeg" href="aryan.jpeg">
+
 <style>
   * {
     margin: 0;
@@ -83,12 +88,12 @@ src="https://www.facebook.com/tr?id=2798426877219761&ev=PageView&noscript=1"
   }
 
   .avatar {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;        /* 👈 YE LINE ADD KARO */
-  box-shadow: 0 0 60px rgba(52, 152, 219, 0.4);
-}
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 60px rgba(52, 152, 219, 0.4);
+  }
 
   .verified-badge {
     position: absolute;
@@ -322,8 +327,8 @@ src="https://www.facebook.com/tr?id=2798426877219761&ev=PageView&noscript=1"
 
     <!-- Avatar -->
     <div class="avatar-wrap">
-  <img src="aryan.jpeg" alt="Logo" class="avatar">
-  <div class="verified-badge">
+      <img src="aryan.jpeg" alt="Logo" class="avatar">
+      <div class="verified-badge">
         <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
       </div>
     </div>
@@ -401,20 +406,50 @@ src="https://www.facebook.com/tr?id=2798426877219761&ev=PageView&noscript=1"
 
 </div>
 
+<!-- Countdown Timer + Lead Tracking Script -->
 <script>
-  // Countdown timer + Auto redirect
-  let seconds = 15;
-  const timerEl = document.getElementById('timer');
-  const telegramLink = "https://t.me/+-IjliZifYRs1ZGY1"; // apna telegram link daalein
+document.addEventListener('DOMContentLoaded', function() {
 
+  const telegramLink = "https://t.me/+-IjliZifYRs1ZGY1"; // ek hi jagah link define
+  const joinButton = document.getElementById('joinBtn');
+  const timerEl = document.getElementById('timer');
+
+  let seconds = 15;
+
+  // Countdown Timer
   const interval = setInterval(() => {
     seconds--;
     timerEl.textContent = seconds;
     if (seconds <= 0) {
       clearInterval(interval);
-      window.location.href = telegramLink;
+      redirectToTelegram();
     }
   }, 1000);
+
+  // Lead Tracking on Button Click
+  if (joinButton) {
+    joinButton.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead');
+      }
+
+      setTimeout(function() {
+        window.location.href = telegramLink;
+      }, 350);
+    });
+  }
+
+  // Auto redirect function (same link used)
+  function redirectToTelegram() {
+    if (typeof fbq === 'function') {
+      fbq('track', 'Lead');
+    }
+    window.location.href = telegramLink;
+  }
+
+});
 </script>
 
 </body>
